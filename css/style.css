@@ -342,6 +342,392 @@ textarea {
 }
 
 /* =====================================================
+   NAVBAR HAMBURGER ANIMATION
+===================================================== */
+
+/* Contenedor del icono hamburguesa */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  position: relative;
+}
+
+/* Estilos base de las líneas */
+.hamburger-icon .line {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Posicionamiento de cada línea */
+.hamburger-icon .line:nth-child(1) {
+  top: 0;
+}
+
+.hamburger-icon .line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-icon .line:nth-child(3) {
+  bottom: 0;
+}
+
+/* Eliminar estilos por defecto de Bootstrap */
+.navbar-toggler {
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Animación cuando el menú está ABIERTO (aria-expanded="true") */
+.navbar-toggler[aria-expanded="true"] .hamburger-icon .line:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-icon .line:nth-child(2) {
+  opacity: 0;
+  transform: translateY(-50%) scale(0);
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-icon .line:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+/* =====================================================
+   MISSION, VISION & VALUES - TIMELINE SECTION
+===================================================== */
+
+/* Contenedor principal de la sección */
+.mission-vision-values-section {
+  padding: 7rem 0;
+  background-color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-vision-values-section .section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 2.5rem;
+  color: var(--color-dark);
+}
+
+/* Contenedor del timeline */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Línea vertical del timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--color-secondary) 0%,
+    var(--color-primary) 50%,
+    var(--color-secondary) 100%
+  );
+  opacity: 0.3;
+  border-radius: 3px;
+}
+
+/* Items del timeline */
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50%;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Item en posición alternada (izquierda) */
+.timeline-item:nth-child(odd) {
+  justify-content: flex-end;
+  padding-right: 50%;
+  padding-left: 0;
+}
+
+/* Item en posición alternada (derecha) */
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+  padding-left: 50%;
+  padding-right: 0;
+}
+
+/* Punto/círculo en la línea del timeline */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--color-secondary);
+  border: 3px solid var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--color-secondary);
+  z-index: 2;
+  transition: var(--transition-base);
+}
+
+/* Hover en el punto del timeline */
+.timeline-item:hover::before {
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary);
+  transform: translateX(-50%) scale(1.2);
+}
+
+/* Contenido del timeline */
+.timeline-content {
+  background: var(--color-background);
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: right;
+  position: relative;
+  transition: var(--transition-base);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Item par - contenido a la izquierda */
+.timeline-item:nth-child(even) .timeline-content {
+  text-align: left;
+}
+
+/* Hover en el contenido */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Icono dentro del círculo */
+.timeline-icon {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 4px 15px rgba(0, 15, 37, 0.3);
+  transition: var(--transition-base);
+}
+
+.timeline-icon i {
+  font-size: 1.5rem;
+  color: var(--color-white);
+}
+
+/* Hover en el icono */
+.timeline-item:hover .timeline-icon {
+  background: var(--color-secondary);
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Título del contenido */
+.timeline-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Texto descriptivo */
+.timeline-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 0;
+}
+
+/* Animación sutil de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-item {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* =====================================================
+   RESPONSIVE - TABLET (768px - 1023px)
+===================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: 80px;
+    padding-right: 0;
+    margin-bottom: 3rem;
+  }
+
+  .timeline-item::before {
+    left: 30px;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item:hover::before {
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  .timeline-icon {
+    left: 30px;
+    top: -30px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item:hover .timeline-icon {
+    transform: translateX(-50%) scale(1.1);
+  }
+
+  .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .mission-vision-values-section .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE (320px - 767px)
+===================================================== */
+@media (max-width: 767px) {
+  .mission-vision-values-section {
+    padding: 4rem 0;
+  }
+
+  .mission-vision-values-section .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: 50px;
+    padding-right: 0;
+    margin-bottom: 2.5rem;
+    flex-direction: column;
+  }
+
+  .timeline-item::before {
+    left: 15px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item:hover::before {
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  .timeline-icon {
+    left: 15px;
+    top: -25px;
+    width: 50px;
+    height: 50px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-icon i {
+    font-size: 1.25rem;
+  }
+
+  .timeline-item:hover .timeline-icon {
+    transform: translateX(-50%) scale(1.1);
+  }
+
+  .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    text-align: left;
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =====================================================
    9. HERO SECTION
 ===================================================== */
 .hero {
@@ -480,7 +866,7 @@ textarea {
 
 .custom-list li {
   display: inline-block;
-  width: calc(50% - 20px);
+  width: calc(100% - 10px);
   margin-bottom: 12px;
   line-height: 1.5;
   position: relative;
