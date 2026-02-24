@@ -64,7 +64,7 @@ body {
   color: var(--color-text);
   background-color: var(--color-background);
   overflow-x: hidden !important;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: relative;
   max-width: 100%;
   margin: 0;
@@ -438,7 +438,7 @@ textarea {
    9. HERO SECTION
 ===================================================== */
 .hero {
-  height: 90vh;
+  height: 120vh;
   background-image: url("../images/background_header.webp");
   background-size: cover;
   background-position: center;

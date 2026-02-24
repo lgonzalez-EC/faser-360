@@ -133,7 +133,7 @@
       duration: 800, // Duración de la animación en ms
       easing: "ease-in-out", // Tipo de easing
       once: true, // La animación ocurre solo una vez
-      offset: 100, // Offset desde el punto de activación
+      offset: 50, // Offset desde el punto de activación
       delay: 0, // Delay global
       disable: false, // Deshabilitar en mobile: 'mobile', 'tablet', o false
     });
