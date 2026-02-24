@@ -18,7 +18,7 @@
   /* Colores principales */
   --color-primary: #000f25;
   --color-primary-dark: #12457e;
-  --color-secondary: #6DAF51;
+  --color-secondary: #6daf51;
   --color-secondary-dark: #6c935c;
   --color-dark: #2f2f2f;
   --color-dark-light: rgba(47, 47, 47, 0.5);
@@ -74,7 +74,12 @@ body {
 /* =====================================================
    4. TYPOGRAPHY
 ===================================================== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 800;
   color: var(--color-dark);
   margin-bottom: 30px;
@@ -433,7 +438,7 @@ textarea {
    9. HERO SECTION
 ===================================================== */
 .hero {
-  height: 80vh;
+  height: 90vh;
   background-image: url("../images/background_header.webp");
   background-size: cover;
   background-position: center;
@@ -441,9 +446,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 0 2rem;
 }
 
 .hero img {
@@ -463,15 +466,6 @@ textarea {
 
 .hero .hero-img-wrap {
   position: relative;
-}
-
-.hero .hero-img-wrap img {
-  position: relative;
-  top: 0px;
-  right: 0px;
-  z-index: 2;
-  max-width: 780px;
-  left: 0;
 }
 
 /* =====================================================
@@ -500,7 +494,7 @@ textarea {
 
 /* Timeline vertical line */
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -545,7 +539,7 @@ textarea {
 
 /* Timeline dot/circle */
 .timeline-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 0;
@@ -632,9 +626,15 @@ textarea {
 }
 
 /* Animation delays */
-.timeline-item:nth-child(1) { animation-delay: 0.2s; }
-.timeline-item:nth-child(2) { animation-delay: 0.4s; }
-.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.timeline-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
 
 /* Fade In Up Animation */
 @keyframes fadeInUp {
