@@ -238,6 +238,10 @@ textarea {
   border-radius: var(--border-radius-base) !important;
 }
 
+svg {
+  color: #6daf51;
+}
+
 /* =====================================================
    8. CUSTOM NAVBAR & HEADER
 ===================================================== */
@@ -566,7 +570,7 @@ textarea {
   padding: 2rem;
   border-radius: 15px;
   max-width: 400px;
-  text-align: right;
+  text-align: left;
   position: relative;
   transition: var(--transition-base);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
